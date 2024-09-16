@@ -32,13 +32,13 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    _askPermissions(null);
+    _askPermissions('');
   }
 
   Future<void> _askPermissions(String routeName) async {
     PermissionStatus permissionStatus = await _getContactPermission();
     if (permissionStatus == PermissionStatus.granted) {
-      if (routeName != null) {
+      if (routeName != '') {
         Navigator.of(context).pushNamed(routeName);
       }
     } else {
